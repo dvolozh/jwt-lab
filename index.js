@@ -9,6 +9,7 @@ fastify.register(require('fastify-jwt'), {
   secret: 'supersecret'
 })
 
+
 fastify.decorate("authenticate", async function(req, res) {
   try {
     await req.jwtVerify()
