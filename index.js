@@ -90,7 +90,7 @@ fastify.post('/login', async (req, res) => {
 
 const start = async () => {
   try {
-    await fastify.listen(3000)
+    await fastify.listen(process.env.port)
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
