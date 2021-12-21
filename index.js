@@ -88,12 +88,10 @@ fastify.post('/login', async (req, res) => {
   }
 })
 
-const start = async () => {
-  try {
-    await fastify.listen(3000)
-  } catch (err) {
+fastify.listen(3000, function (err, address) {
+  if (err) {
     fastify.log.error(err)
     process.exit(1)
   }
-}
-start()
+  fastify.log.info(`server listening on ${address}`)
+})
